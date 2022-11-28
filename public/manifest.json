@@ -1,0 +1,34 @@
+{
+	"name": "Xary Rom",
+	"short_name": "Xary Rom",
+	"description": "Rom ET/MVP",
+	"id": "/",
+	"scope": "/",
+	"start_url": "/",
+	"theme_color": "#ffffff",
+	"background_color": "#000000",
+	"display": "standalone",
+	"orientation": "landscape",
+	"icons": [
+		{
+			"src": "/icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-256x256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-384x384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
