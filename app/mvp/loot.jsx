@@ -5,6 +5,7 @@ export function Loot({ arg }) {
 
 	const item = loots.map(items => {
 		const drops = Object.keys(items).map(i => items[i])
+
 		return (
 			<>
 				{drops.map(drop => (

@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Button, Drawer, Page, Text } from '@geist-ui/core'
+import { Button, Drawer, Page, Spacer, Text } from '@geist-ui/core'
 import Floors from './floors'
 
 export default function ETContainer({ data }) {
 	const [state, setState] = useState(false)
+	const [route, setRoute] = useState({})
+	const routeFloors = Object.keys(route).map(k => k)
 
 	return (
 		<Page
@@ -20,7 +22,7 @@ export default function ETContainer({ data }) {
 						textAlign: 'center',
 					}}
 				>
-					ET List
+					Endless Tower
 				</Text>
 			</Page.Header>
 			<Page.Body>
@@ -33,10 +35,11 @@ export default function ETContainer({ data }) {
 						justifyContent: 'right',
 						margin: '-50px 0 30px auto',
 						transition: 'all 0.2s ease-in',
+						zIndex: '1',
 					}}
 				>
 					<Button type="success" onClick={() => setState(true)}>
-						Ver Mapa
+						Ver Ruta
 					</Button>
 				</div>
 				<div
@@ -54,7 +57,9 @@ export default function ETContainer({ data }) {
 						paddingLeft: '12px',
 					}}
 				>
-					<Floors data={data} />
+					{data.channels.map((data, i) => (
+						<Floors key={i} data={data} ch={i} props={{ route, setRoute }} />
+					))}
 				</div>
 			</Page.Body>
 			<Page.Footer>
@@ -65,8 +70,28 @@ export default function ETContainer({ data }) {
 				>
 					<Drawer.Title>Endless Tower</Drawer.Title>
 					<Drawer.Subtitle>{data.week}</Drawer.Subtitle>
+					<Drawer.Content
+						style={{
+							textAlign: 'center',
+						}}
+					>
+						<Text h3>
+							Piso
+							<Spacer w={2} inline />
+							Canal
+						</Text>
+						{routeFloors.map(floor => (
+							<Text key={floor}>
+								{floor}
+								<Spacer w={4} inline />
+								{route[floor] + 1}
+							</Text>
+						))}
+					</Drawer.Content>
 					<Drawer.Content>
-						<Text p>Lista de boses aqui</Text>
+						<Button disabled type="success" onClick={() => setState(false)}>
+							Compartir
+						</Button>
 					</Drawer.Content>
 				</Drawer>
 			</Page.Footer>
