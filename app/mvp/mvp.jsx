@@ -7,7 +7,7 @@ import ChevronDown from '@geist-ui/icons/chevronDown'
 import { Loot } from './loot'
 
 export default function MVPContainer({ data }) {
-	const [sort, setSort] = useState('id-asc')
+	const [, setSort] = useState('id-asc')
 
 	function sorted(value) {
 		setSort(() => value)
@@ -22,44 +22,63 @@ export default function MVPContainer({ data }) {
 
 	return (
 		<Page>
-			<Page.Header
-				style={{
-					display: 'flex',
-					justifyContent: 'right',
-				}}
-			>
-				<Select placeholder="Ordenar" initialValue={sort} onChange={sorted}>
-					<Select.Option value={'id-asc'}>
-						<ChevronUp size={18} />
-						ID
-					</Select.Option>
-					<Select.Option value="id">
-						<ChevronDown size={18} />
-						ID
-					</Select.Option>
-					<Select.Option value={'name-asc'}>
-						<ChevronUp size={18} />
-						Name
-					</Select.Option>
-					<Select.Option value="name">
-						<ChevronDown size={18} />
-						Name
-					</Select.Option>
-					<Select.Option value={'total-asc'}>
-						<ChevronUp size={18} />
-						Total
-					</Select.Option>
-					<Select.Option value="total">
-						<ChevronDown size={18} />
-						Total
-					</Select.Option>
-				</Select>
+			<Page.Header center>
+				<Text
+					h1
+					style={{
+						textAlign: 'center',
+					}}
+				>
+					MVP Loot
+				</Text>
 			</Page.Header>
 			<Page.Body>
+				<div
+					style={{
+						display: 'flex',
+						position: 'sticky',
+						top: '65px',
+						justifyContent: 'right',
+						margin: '-50px -55px 20px auto',
+						transition: 'all 0.2s ease-in',
+					}}
+				>
+					<Select
+						type="success"
+						placeholder="Ordenar"
+						disableMatchWidth
+						onChange={sorted}
+					>
+						<Select.Option value={'id-asc'}>
+							<ChevronUp size={18} />
+							ID
+						</Select.Option>
+						<Select.Option value="id">
+							<ChevronDown size={18} />
+							ID
+						</Select.Option>
+						<Select.Option value={'name-asc'}>
+							<ChevronUp size={18} />
+							Name
+						</Select.Option>
+						<Select.Option value="name">
+							<ChevronDown size={18} />
+							Name
+						</Select.Option>
+						<Select.Option value={'total-asc'}>
+							<ChevronUp size={18} />
+							Total
+						</Select.Option>
+						<Select.Option value="total">
+							<ChevronDown size={18} />
+							Total
+						</Select.Option>
+					</Select>
+				</div>
 				<Grid.Container gap={2} justify="center">
 					{data.map(mvp => (
 						<Grid key={mvp.id}>
-							<Card type="dark" hoverable width="300px">
+							<Card type="success" hoverable width="300px">
 								<Card.Content>
 									<Grid.Container justify="space-between" wrap>
 										<Grid xs={6}>

@@ -1,5 +1,6 @@
 import { Nav, Providers } from '@components'
 import '@styles/globals.css'
+import Footer from 'components/footer'
 
 export default function RootLayout({ children }) {
 	return (
@@ -9,7 +10,7 @@ export default function RootLayout({ children }) {
 				<Providers>
 					<Nav />
 					{children}
-					<h2>Footer</h2>
+					<Footer />
 				</Providers>
 			</body>
 		</html>

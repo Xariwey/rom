@@ -5,7 +5,7 @@ import { Page, Text } from '@geist-ui/core'
 export default function Home() {
 	return (
 		<Page>
-			<Page.Header>
+			<Page.Header center>
 				<Text h1>Hello, Everyone.</Text>
 			</Page.Header>
 			<Page.Body>

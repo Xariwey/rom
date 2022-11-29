@@ -1,13 +1,8 @@
-'use client'
+import ETDB from '@lib/etdb'
+import ETContainer from './et'
 
-import { Page, Text } from '@geist-ui/core'
+export default async function ET() {
+	const data = await ETDB()
 
-export default function ET() {
-	return (
-		<Page>
-			<Page.Body>
-				<Text>ET List</Text>
-			</Page.Body>
-		</Page>
-	)
+	return <ETContainer data={data} />
 }
