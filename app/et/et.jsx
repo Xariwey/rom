@@ -12,7 +12,7 @@ export default function ETContainer({ data }) {
 	return (
 		<Page
 			style={{
-				width: '90%',
+				width: '100vw',
 			}}
 		>
 			<Page.Header center>

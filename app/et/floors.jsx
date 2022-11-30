@@ -9,7 +9,17 @@ export default function Floors({ data, ch, props }) {
 	channel.pop()
 	floor.pop()
 
-	const test = (f, i) => {
+	const selectedRoute = (i, ch) => {
+		if (route.hasOwnProperty(floor[i]) && route[floor[i]] === ch) {
+			delete route[floor[i]]
+			setRoute({ ...route })
+			return
+		}
+
+		setRoute({ ...route, [floor[i]]: ch })
+	}
+
+	const bgSelectedColor = (f, i) => {
 		if (route[f] === i) return theme.palette.successLighter
 	}
 
@@ -44,10 +54,10 @@ export default function Floors({ data, ch, props }) {
 				<>
 					<Divider my={0} />
 					<Card.Content
-						onClick={() => setRoute({ ...route, [floor[i]]: ch })}
+						onClick={() => selectedRoute(i, ch)}
 						style={{
 							...css,
-							backgroundColor: test(floor[i], ch),
+							backgroundColor: bgSelectedColor(floor[i], ch),
 						}}
 					>
 						<Grid.Container gap={2} justify="space-between" wrap="nowrap">

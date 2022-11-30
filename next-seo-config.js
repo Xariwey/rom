@@ -10,12 +10,12 @@ export const NEXT_SEO_DEFAULT = {
 		siteName: 'Xary Rom',
 		images: [
 			{
-				url: `https://${deploymentURL}/seo.jpg`,
-				width: 1280,
-				height: 720,
+				url: `https://${deploymentURL}/seo2.jpg`,
+				width: 620,
+				height: 315,
 				alt: 'Og Image Alt',
 				type: 'image/jpeg',
-				secureUrl: `https://${deploymentURL}/seo.jpg`,
+				secureUrl: `https://${deploymentURL}/seo2.jpg`,
 			},
 		],
 	},
