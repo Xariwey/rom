@@ -6,3 +6,5 @@ export default async function ET() {
 
 	return <ETContainer data={data} />
 }
+
+export const revalidate = 3600

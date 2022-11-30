@@ -6,3 +6,5 @@ export default async function MVP() {
 
 	return <MVPContainer data={data} />
 }
+
+export const revalidate = 3600
