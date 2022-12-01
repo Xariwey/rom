@@ -60,9 +60,9 @@ export default function Floors({ data, ch, props }) {
 							backgroundColor: bgSelectedColor(floor[i], ch),
 						}}
 					>
-						<Grid.Container gap={2} justify="space-between" wrap="nowrap">
+						<Grid.Container gap={1} justify="space-between" wrap="nowrap">
 							<Grid xs={6} style={css}>
-								<Text h4 style={css}>
+								<Text h4 style={{ ...css, textAlign: 'left' }}>
 									{floor[i]}
 								</Text>
 							</Grid>

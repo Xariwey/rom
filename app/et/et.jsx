@@ -7,7 +7,9 @@ import Floors from './floors'
 export default function ETContainer({ data }) {
 	const [state, setState] = useState(false)
 	const [route, setRoute] = useState({})
-	const routeFloors = Object.keys(route).map(k => k)
+	const routeFloors = Object.keys(route)
+		.map(k => k)
+		.reverse()
 
 	return (
 		<Page
@@ -20,11 +22,22 @@ export default function ETContainer({ data }) {
 					h1
 					style={{
 						textAlign: 'center',
+						margin: 0,
+						padding: 0,
 					}}
 				>
 					Endless Tower
 				</Text>
 			</Page.Header>
+			<Text
+				style={{
+					textAlign: 'center',
+					margin: 0,
+					padding: 0,
+				}}
+			>
+				{data.week}
+			</Text>
 			<Page.Body>
 				<div
 					style={{
@@ -54,7 +67,6 @@ export default function ETContainer({ data }) {
 						overflowX: 'scroll',
 						alignItems: 'center',
 						justifyContent: 'left',
-						paddingLeft: '12px',
 					}}
 				>
 					{data.channels.map((data, i) => (
